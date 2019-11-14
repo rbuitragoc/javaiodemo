@@ -26,7 +26,9 @@ public class SerializationTest {
                 "Un Nombre de Verdad",
                 100,
                 new Date(),
-                new HashMap<>());
+                new HashMap<>() {{
+                    put("cedula", "12463142435");
+                }});
         System.out.println(basic);
     }
 
@@ -38,8 +40,8 @@ public class SerializationTest {
         BasicSerializableClass basic = new BasicSerializableClass(
                 "First test ever",
                 100,
-                DateFormat.getDateInstance(DateFormat.SHORT).parse("02/03/1979"),
-                null);
+                new Date(),//DateFormat.getDateInstance(DateFormat.SHORT).parse("02/03/1979"),
+                new HashMap<>());
         try (ObjectOutputStream objectStream = new ObjectOutputStream(System.out)) {
             objectStream.writeObject(basic);
         } catch (Exception e) {
@@ -96,7 +98,7 @@ public class SerializationTest {
         JAXBSerializableClass xclass = new JAXBSerializableClass(
                 "Mr David",
                 "Copperfield",
-                250,
+                null,
                 new JAXBSerializableClass.Phone(324, 51325213)
         );
 
@@ -121,7 +123,7 @@ public class SerializationTest {
         );
 
         ObjectMapper mapper = new ObjectMapper();
-//        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         String jsonString = mapper.writeValueAsString(basic);
         System.out.println(String.format("Printing JSON a bit ugly: %s", jsonString));
     }

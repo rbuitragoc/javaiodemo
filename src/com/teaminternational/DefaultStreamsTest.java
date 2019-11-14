@@ -55,29 +55,33 @@ public class DefaultStreamsTest {
             }
         });
 
-        System.out.println("Ingresar una expresion booleana o un valor booleano:");
+        System.out.println("Ingresar un integer para leer con scanner:");
 
         try (Scanner inputScanner = new Scanner(System.in)) {
             while (inputScanner.hasNext()) {
-//                String inputText = inputScanner.nextLine();
+                int inputInteger = inputScanner.nextInt();
 //                if (inputText.matches("EXIT")) {
 //                    System.out.println("Exiting... ");
 //                    inputScanner.close();
 //                } else {
-                    boolean inputBool = inputScanner.nextBoolean();
-                    System.out.println(String.format("Booleano leido con scanner: '%s'", inputBool));
+//                    boolean inputBool = inputScanner.nextBoolean();
+                    System.out.println(String.format("Integer leido con scanner: '%s'", inputInteger));
 //                }
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Asegurese de entrar booleanos!");
-            System.exit(-9);
+        } catch (IllegalStateException e) {
+            System.err.println("Closing scanner, make sure to release resources");
         }
+//        catch (InputMismatchException e) {
+//            System.out.println("Asegurese de entrar booleanos!");
+//            System.exit(-9);
+//        }
     }
 
     public static void main(String ... args) throws IOException, InterruptedException {
         DefaultStreamsTest testClass = new DefaultStreamsTest();
 //        testClass.testDefaultInputStream();
 //        testClass.testDefaultOutputStreams();
-        testClass.testScannerLiveCoding();
+//        testClass.testScannerLiveCoding();
+        testClass.testScanner();
     }
 }
