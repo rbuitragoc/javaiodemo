@@ -7,11 +7,11 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
-import javax.swing.*;
-import javax.xml.bind.JAXB;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBContextFactory;
-import javax.xml.bind.JAXBException;
+//import javax.swing.*;
+//import javax.xml.bind.JAXB;
+//import javax.xml.bind.JAXBContext;
+//import javax.xml.bind.JAXBContextFactory;
+//import javax.xml.bind.JAXBException;
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.text.DateFormat;
@@ -26,7 +26,7 @@ public class SerializationTest {
                 "Un Nombre de Verdad",
                 100,
                 new Date(),
-                new HashMap<>() {{
+                new HashMap<String, String>() {{
                     put("cedula", "12463142435");
                 }});
         System.out.println(basic);
@@ -94,26 +94,26 @@ public class SerializationTest {
         }
     }
 
-    public void testXMLSerializationWithJAXB() throws JAXBException {
-        JAXBSerializableClass xclass = new JAXBSerializableClass(
-                "Mr David",
-                "Copperfield",
-                null,
-                new JAXBSerializableClass.Phone(324, 51325213)
-        );
-
-        JAXBContext
-                .newInstance(JAXBSerializableClass.class)
-                .createMarshaller()
-                .marshal(xclass, System.out);
-    }
+//    public void testXMLSerializationWithJAXB() throws JAXBException {
+//        JAXBSerializableClass xclass = new JAXBSerializableClass(
+//                "Mr David",
+//                "Copperfield",
+//                null,
+//                new JAXBSerializableClass.Phone(324, 51325213)
+//        );
+//
+//        JAXBContext
+//                .newInstance(JAXBSerializableClass.class)
+//                .createMarshaller()
+//                .marshal(xclass, System.out);
+//    }
 
     public void testJsonSerializationWithJackson() throws ParseException, JsonProcessingException {
         BasicSerializableClass basic = new BasicSerializableClass(
                 "First test ever",
                 100,
                 new Date(),
-                new HashMap<>(){{put("cedula", "1235234614");}});
+                new HashMap<String, String>(){{put("cedula", "1235234614");}});
 
         JAXBSerializableClass xclass = new JAXBSerializableClass(
                 "Mr David",
@@ -134,10 +134,10 @@ public class SerializationTest {
 //        test.testBasicSerialization();
 //        test.testObjectStreamSerialization();
 //        test.testObjectStreamSerializationWithRead();
-//        test.testXMLSerializationWithXStream();
+        test.testXMLSerializationWithXStream();
 //        test.testXMLSerializationWithXMLEncoder(); // FIXME
 //        test.testXMLSerializationWithJAXB();
-        test.testJsonSerializationWithJackson();
+//        test.testJsonSerializationWithJackson();
     }
 
 }

@@ -13,15 +13,15 @@ public class DefaultStreamsTest {
         System.err.println("Un error en la segund linea de codigo!");
     }
 
-    private void testDefaultInputStream() throws IOException, InterruptedException {
-        System.out.print("Ingrese algo de texto: ");
-        while (System.in.available() == 0) {
-            Thread.currentThread().sleep(100L);
-        }
-        int avl = System.in.available();
-        byte[] allBytes = System.in.readNBytes(avl);
-        System.out.println(String.format("\nCadena de caracteres leida con system in: %s", new String(allBytes)));
-    }
+//    private void testDefaultInputStream() throws IOException, InterruptedException {
+//        System.out.print("Ingrese algo de texto: ");
+//        while (System.in.available() == 0) {
+//            Thread.currentThread().sleep(100L);
+//        }
+//        int avl = System.in.available();
+//        byte[] allBytes = System.in.readNBytes(avl);
+//        System.out.println(String.format("\nCadena de caracteres leida con system in: %s", new String(allBytes)));
+//    }
 
 
     public void testScannerLiveCoding() {

@@ -1,20 +1,20 @@
 package com.teaminternational.serialization;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+//import javax.xml.bind.annotation.XmlElement;
+//import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
-@XmlRootElement(name = "contact")
+//@XmlRootElement(name = "contact")
 public class JAXBSerializableClass {
 
-    @XmlElement
+//    @XmlElement
     private String name;
-    @XmlElement
+//    @XmlElement
     private String lastName;
-    @XmlElement(name = "edad")
+//    @XmlElement(name = "edad")
     private Integer age;
-    @XmlElement
+//    @XmlElement
     private Phone phone;
 
     public JAXBSerializableClass() {}
@@ -27,9 +27,9 @@ public class JAXBSerializableClass {
     }
 
     static class Phone implements Serializable {
-        @XmlElement
+//        @XmlElement
         private int prefix;
-        @XmlElement
+//        @XmlElement
         private int number;
         public Phone(int prefix, int number) {
             this.prefix = prefix;

@@ -44,26 +44,26 @@ public class WriteToFileTest {
 
 
 
-    private String readFromFile() {
-        String texto = null;
-    // create file instance
-        File file = new File(FILENAME);
-    // print file path
-        System.out.println("Reading from file " + file.getAbsolutePath());
-    // create file input stream instance
-        try (FileInputStream fis = new FileInputStream(FILENAME)) {
-    // find out available content size
-            int disponible = fis.available();
-    // read available content in bytes
-            byte[] bytes = fis.readNBytes(disponible);
-    // return string built from bytes
-            texto = new String(bytes);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return texto;
-    }
+//    private String readFromFile() {
+//        String texto = null;
+//    // create file instance
+//        File file = new File(FILENAME);
+//    // print file path
+//        System.out.println("Reading from file " + file.getAbsolutePath());
+//    // create file input stream instance
+//        try (FileInputStream fis = new FileInputStream(FILENAME)) {
+//    // find out available content size
+//            int disponible = fis.available();
+//    // read available content in bytes
+//            byte[] bytes = fis.readNBytes(disponible);
+//    // return string built from bytes
+//            texto = new String(bytes);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return texto;
+//    }
 
 
 
@@ -109,11 +109,11 @@ public class WriteToFileTest {
 
 
     public static void main(String[] args) throws IOException {
-        WriteToFileTest test = new WriteToFileTest();
-        test.writeToFile("Texto para escribir");
-        String contents = test.readFromFile();
-        System.out.println("File contents are: '" + contents + "'");
-        boolean wasDeleted = test.deleteFile();
-        System.out.println("File was deleted? " + wasDeleted);
+//        WriteToFileTest test = new WriteToFileTest();
+//        test.writeToFile("Texto para escribir");
+//        String contents = test.readFromFile();
+//        System.out.println("File contents are: '" + contents + "'");
+//        boolean wasDeleted = test.deleteFile();
+//        System.out.println("File was deleted? " + wasDeleted);
     }
 }
