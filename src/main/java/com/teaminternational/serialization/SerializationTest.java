@@ -1,20 +1,18 @@
 package com.teaminternational.serialization;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
-//import javax.swing.*;
-import javax.xml.bind.JAXB;
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBContextFactory;
 import javax.xml.bind.JAXBException;
 import java.beans.XMLEncoder;
-import java.io.*;
-import java.text.DateFormat;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
@@ -134,9 +132,9 @@ public class SerializationTest {
 //        test.testBasicSerialization();
 //        test.testObjectStreamSerialization();
 //        test.testObjectStreamSerializationWithRead();
-//        test.testXMLSerializationWithXStream();
+        test.testXMLSerializationWithXStream();
 //        test.testXMLSerializationWithXMLEncoder(); // FIXME
-        test.testXMLSerializationWithJAXB();
+//        test.testXMLSerializationWithJAXB();
 //        test.testJsonSerializationWithJackson();
     }
 
