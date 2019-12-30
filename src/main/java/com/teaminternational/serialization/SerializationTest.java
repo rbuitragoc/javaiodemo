@@ -4,15 +4,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.beans.XMLEncoder;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
@@ -72,12 +70,11 @@ public class SerializationTest {
                 "Mr David",
                 "Copperfield",
                 250,
-                new XMLSerializableClass.Phone(324, 51325213)
+                new Phone(324, 51325213)
         );
         XStream xstream = new XStream(new StaxDriver());
         xstream.alias("contact", XMLSerializableClass.class);
-        String xmlContent = xstream.toXML(xclass);
-        System.out.println(xmlContent);
+        xstream.marshal(xclass, new PrettyPrintWriter(new OutputStreamWriter(System.out)));
     }
 
     public void testXMLSerializationWithXMLEncoder() {
