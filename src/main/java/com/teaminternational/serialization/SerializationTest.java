@@ -82,10 +82,12 @@ public class SerializationTest {
                 "Mr David",
                 "Copperfield",
                 250,
-                new XMLSerializableClass.Phone(324, 51325213)
+                new Phone(324, 51325213)
         );
-        try (XMLEncoder encoder = new XMLEncoder(System.out)) {
-            encoder.writeObject(xclass);
+
+        try (XMLEncoder encoder = new XMLEncoder(System.out, "UTF-8", true, 2)) {
+            encoder.writeObject(xclass); //new JButton("Hello, world")
+            encoder.flush();
         }
     }
 
@@ -129,8 +131,8 @@ public class SerializationTest {
 //        test.testBasicSerialization();
 //        test.testObjectStreamSerialization();
 //        test.testObjectStreamSerializationWithRead();
-        test.testXMLSerializationWithXStream();
-//        test.testXMLSerializationWithXMLEncoder(); // FIXME
+//        test.testXMLSerializationWithXStream();
+        test.testXMLSerializationWithXMLEncoder(); // FIXME
 //        test.testXMLSerializationWithJAXB();
 //        test.testJsonSerializationWithJackson();
     }
